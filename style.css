@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
+    background-image: url(src/album.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main{
+    /* border: 1px solid rgba(255, 255, 255, .25);
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+   */
+    backdrop-filter: blur(15px)
+}
+
+nav{
+    background: rgba( 255, 255, 255, 0.25 );
+/* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.center{
+    background: rgba( 255, 255, 255, 0.25 );
+/* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.right{
+    background: rgba( 255, 255, 255, 0.25 );
+/* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+i{
+    font-size: 1.2rem;
+}
+
+/* .scrollable-container {
+    overflow-x: auto;
+    white-space: nowrap;
+} */
+
+.discover,.album,.favorite{
+    scrollbar-width: none;
+}
+
+button{
+    cursor: none;
+}
+
+button>i{
+    font-size: 2rem;
+    cursor: pointer;
+}

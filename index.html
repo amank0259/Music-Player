@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+    <div id="main" class="flex transparent h-[90%] w-[90%]">
+        <nav class="w-[5%] py-10 flex flex-col items-center gap-10">
+            <a class="font-bold text-lg" href=""><h1>Home</h1></a>
+            <ul class=" flex flex-col gap-10">
+                <li class="hover:text-yellow-400">
+                    <a href=""><i class="fa-solid fa-house"></i></a>
+                </li>
+                <li class="hover:text-yellow-400">
+                    <a href=""><i class="fa-brands fa-tiktok"></i></i></a>
+                </li>
+                <li class="hover:text-yellow-400">
+                    <a href=""><i class="fa-solid fa-podcast"></i></i></i></a>
+                </li>
+                <li class="hover:text-yellow-400">
+                    <a href=""><i class="fa-solid fa-folder-plus"></i></a>
+                </li>
+                <li class="hover:text-yellow-400">
+                    <a href=""><i class="fa-regular fa-heart"></i></i></i></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="center relative py-10 w-3/5">
+            <div class="center-nav flex items-center justify-evenly">
+                <ul class="flex flex-row text-gray-800 font-bold  gap-20">
+                    <li class="hover:text-white active:text-white"><a href="">All music</a></li>
+                    <li class="hover:text-white"><a href="">Discover</a></li>
+                    <li class="hover:text-white"><a href="">Album</a></li>
+                    <li class="hover:text-white"><a href="">Artist</a></li>
+                    <li class="hover:text-white"><a href="">Songs</a></li>
+                </ul>
+                <div class="flex flex-row items-center gap-2">
+                    <input class="searchBar rounded-xl text-xs font-bold h-8 outline-0 px-4" placeholder="Search music" type="search" name="" id="">
+                    <i class="fa-solid fa-magnifying-glass cursor-pointer"></i>
+                </div>
+            </div>
+            <div class="hidden searchTheme absolute h-[90%] bg-black opacity-80 z-10 w-full"></div>
+            <div class="hidden searchItem  absolute bg-zinc-200 h-auto z-10 rounded p-2 w-80 right-0">
+                <!-- This section in handled by js -->
+            </div>
+            <div class="categories m-8">
+                <h2 class="pb-4 text-lg font-bold">Discover</h2>
+                <div class="discover overflow-x-scroll">
+                    <div class="flex flex-row w-screen gap-10">
+                        <div class="discoverPoster max-w-full flex gap-10">
+                            <!-- This section is handeled by js -->
+                        </div>
+                    </div>
+                </div>
+                <h2 class="py-4 text-lg font-bold">Album</h2>
+                <div class="album overflow-x-scroll">
+                    <div class="flex flex-row w-screen gap-10">
+                        <div class="max-w-full flex gap-10">
+                            <div class="relative">
+                                <img class="h-40" src="src/album.webp" alt="">
+                                <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                            </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <h2 class="py-4 text-lg font-bold">Favorite</h2>
+                <div class="favorite overflow-x-scroll">
+                    <div class="flex flex-row w-screen gap-10">
+                        <div class="max-w-full flex gap-10">
+                            <div class="relative">
+                                <img class="h-40" src="src/album.webp" alt="">
+                                <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                            </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                        <div class="relative">
+                        <img class="h-40" src="src/album.webp" alt="">
+                        <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="right w-[35%] py-10 px-8">
+            <div class="right-nav flex px-10 pb-8 justify-end gap-10">
+                <div>
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+            <div class="player border-2 py-8 h-[90%]">
+                <h2 class="text-gray-700 text-center pb-8 font-bold">Now Playing</h2>
+                <div class="px-6 h-3/4 flex justify-center">
+                    <img class="" src="src/album.webp" alt="">
+                </div>
+                <div class="seek my-6 mx-8 h-2 relative w-90 bg-white">
+                    <div class="absolute my-6 h-2 relative w-[10%] bg-gray-500 "></div>
+                </div>
+                <div class="controlls flex justify-center gap-8 items-center mt-4">
+                    <button class="control-button">
+                        <i class="fa-solid fa-step-backward"></i> 
+                    </button>
+                    <button class="control-button mx-20">
+                        <i class="fa-solid fa-pause"></i> 
+                        <i class="fa-solid fa-play"></i> 
+                    </button>
+                    <button class="control-button">
+                        <i class="fa-solid fa-step-forward"></i> 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
