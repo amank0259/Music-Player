@@ -86,39 +86,6 @@ const allSongs = [
     // }
 ]
 
-const favoriteSongs = [
-    {
-        id: 1,
-        name: "Aku Sayang x Sprinter (BassSlowed)",
-        song: "src/songs/Aku Sayang x Sprinter (BassSlowed).mp3",
-        thumb: "src/thumb/aaku sayang.jpg",
-    },
-    {
-        id: 2,
-        name: "Haye Ni Apa fer milange",
-        song: "src/songs/Haye Ni Apa Fer Milange, Kde Na Kde Fer Milange (Video Song)Savi KahlonTu Phool Banna M Tara sajna.mp3",
-        thumb: "src/thumb/Apa fer milange.jpg",
-    },
-    {
-        id: 3,
-        name: "Chitthi Qk, UK Rapi Boy Hustle 2.0",
-        song: "src/songs/Chitthi  QK, UK Rapi Boy  Hustle 2.0.mp3",
-        thumb: "src/thumb/Chitthi.jpg",
-    },
-    {
-        id: 4,
-        name: "Hass Hass (Official Video) Diljit X Sia",
-        song: "src/songs/Hass Hass (Official Video) Diljit X Sia.mp3",
-        thumb: "src/thumb/Hass Hass.jpg",
-    },
-    {
-        id: 5,
-        name: "Anuv Jain - HUSN ",
-        song: "src/songs/Anuv Jain - HUSN (Lyrics).mp3",
-        thumb: "src/thumb/Husn.jpg",
-    },
-]
-
 const album = [
     {
         id: 5,
@@ -139,10 +106,61 @@ const album = [
         thumb: "src/thumb/Kenya_Grace_stranger.jpg",
     },
     {
+        id: 6,
+        name: "Ishq Nachaawe - Kho Gaye Hum Kahan  Siddhant, Ananya, Adarsh  Rashmeet K, Karan K, Yashraj, Dhrruv",
+        song: "src/songs/Ishq Nachaawe - Kho Gaye Hum Kahan  Siddhant, Ananya, Adarsh  Rashmeet K, Karan K, Yashraj, Dhrruv.mp3",
+        thumb: "src/thumb/Ishq_nachaawe.jpg",
+    },
+    {
+        id: 7,
+        name: "Kenya Grace - Stranger (lyrics) #lyrics #stranger #kenyagrace",
+        song: "src/songs/Kenya Grace - Stranger (lyrics) #lyrics #stranger #kenyagrace.mp3",
+        thumb: "src/thumb/Kenya_Grace_stranger.jpg",
+    },
+    {
         id: 8,
         name: "King Shit - Shubh ",
         song: "src/songs/King Shit - Shubh (Official Video).mp3",
         thumb: "src/thumb/King_shit_Shubh.jpg",
+    },
+    {
+        id: 7,
+        name: "Kenya Grace - Stranger (lyrics) #lyrics #stranger #kenyagrace",
+        song: "src/songs/Kenya Grace - Stranger (lyrics) #lyrics #stranger #kenyagrace.mp3",
+        thumb: "src/thumb/Kenya_Grace_stranger.jpg",
+    },
+]
+
+const favoriteSongs = [
+    {
+        id: 1,
+        name: "Aku Sayang x Sprinter (BassSlowed)",
+        song: "src/songs/Aku Sayang x Sprinter (BassSlowed).mp3",
+        thumb: "src/thumb/aaku_sayang.jpg",
+    },
+    {
+        id: 2,
+        name: "Haye Ni Apa fer milange",
+        song: "src/songs/Haye Ni Apa Fer Milange, Kde Na Kde Fer Milange (Video Song)Savi KahlonTu Phool Banna M Tara sajna.mp3",
+        thumb: "src/thumb/Apa_fer_milange.jpg",
+    },
+    {
+        id: 3,
+        name: "Chitthi Qk, UK Rapi Boy Hustle 2.0",
+        song: "src/songs/Chitthi  QK, UK Rapi Boy  Hustle 2.0.mp3",
+        thumb: "src/thumb/Chitthi.jpg",
+    },
+    {
+        id: 4,
+        name: "Hass Hass (Official Video) Diljit X Sia",
+        song: "src/songs/Hass Hass (Official Video) Diljit X Sia.mp3",
+        thumb: "src/thumb/Hass_Hass.jpg",
+    },
+    {
+        id: 5,
+        name: "Anuv Jain - HUSN ",
+        song: "src/songs/Anuv Jain - HUSN (Lyrics).mp3",
+        thumb: "src/thumb/Husn.jpg",
     },
 ]
 
@@ -158,8 +176,24 @@ allSongs.forEach(function(obj){
 
 var albumPoster = "";
 album.forEach(obj => {
-    albumPoster += ``;
+    albumPoster += `<div class="relative">
+    <img class="h-40" src=${obj.thumb} alt="">
+    <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+</div>`;
+    document.querySelector(".albumPoster").innerHTML = albumPoster;
 });
+
+
+var favoritePoster = "";
+favoriteSongs.forEach(obj => {
+    favoritePoster += `<div class="relative">
+    <img class="h-40" src=${obj.thumb} alt="">
+    <i class="fa-solid absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+</div>`;
+    document.querySelector(".favoritePoster").innerHTML = favoritePoster;
+});
+
+                            
 
 
 function handleSearch() {
