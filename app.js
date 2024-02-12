@@ -193,32 +193,51 @@ favoriteSongs.forEach(obj => {
     document.querySelector(".favoritePoster").innerHTML = favoritePoster;
 });
 
-                            
-
-
 function handleSearch() {
     var input = document.querySelector(".searchBar");
     const searchTheme = document.querySelector(".searchTheme");
     const searchItem = document.querySelector(".searchItem");
 
-    input.addEventListener("focus", function(){
+    function showSearchResults() {
         searchTheme.style.display = "block";
         searchItem.style.display = "block";
-    });
-    input.addEventListener("blur", function(){
+    }
+
+    function hideSearchResults() {
         searchTheme.style.display = "none";
         searchItem.style.display = "none";
-    });
+        searchItem.innerHTML = "";
+        input.value = "";
+    }
+
+    input.addEventListener("focus", showSearchResults);
+    input.addEventListener("blur", hideSearchResults);
 
     input.addEventListener("input", function () {
-        // const keyword = input.value.toLowerCase();
-        const filteredArray = allSongs.filter(obj => obj.name.toLowerCase().includes(input.value));
-        var clutter = "";
-        filteredArray.forEach(function(obj){
-            clutter += `<div class="border-b cursor-pointer border-zinc-400"><h3>${obj.name}</h3></div>`
-            console.log(clutter);
+        const keyword = input.value.toLowerCase();
+        if (keyword === "") {
+            searchItem.innerHTML = "";
+        } else {
+            const filteredArray = allSongs.filter(obj => obj.name.toLowerCase().includes(keyword));
+            var clutter = "";
+            filteredArray.forEach(function(obj){
+                clutter += `<div class="border-b cursor-pointer border-zinc-400"><h3>${obj.name}</h3></div>`
+            });
             searchItem.innerHTML = clutter;
-        })
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "/" && document.activeElement !== input) {
+            input.focus();
+            event.preventDefault();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            hideSearchResults();
+        }
     });
 }
 
