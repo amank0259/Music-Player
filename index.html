@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
     <div id="main" class="flex transparent h-[90%] w-[90%]">
-        <nav class="w-[5%] py-10 flex flex-col items-center gap-10">
-            <a class="font-bold text-lg" href=""><h1>Home</h1></a>
+        <nav class="w-[5%] py-10 hidden lg:flex flex-col items-center gap-10">
+            <a class="font-bold text-lg" href="">
+                <h1>Home</h1>
+            </a>
             <ul class=" flex flex-col gap-10">
                 <li class="hover:text-yellow-400">
                     <a href=""><i class="fa-solid fa-house"></i></a>
@@ -30,7 +34,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="center relative py-10 w-3/5">
+        <div class="center relative py-10 hidden lg:block w-3/5">
             <div class="center-nav flex items-center justify-evenly">
                 <ul class="flex flex-row text-gray-800 font-bold  gap-20">
                     <li class="hover:text-white active:text-white"><a href="">All music</a></li>
@@ -40,7 +44,8 @@
                     <li class="hover:text-white"><a href="">Songs</a></li>
                 </ul>
                 <div class="flex flex-row items-center gap-2">
-                    <input class="searchBar rounded-xl text-xs font-bold h-8 outline-0 px-4" placeholder="Search music" type="search" name="" id="">
+                    <input class="searchBar rounded-xl text-xs font-bold h-8 outline-0 px-4" placeholder="Search music"
+                        type="search" name="" id="">
                     <i class="fa-solid fa-magnifying-glass cursor-pointer"></i>
                 </div>
             </div>
@@ -62,8 +67,8 @@
                     <div class="flex flex-row w-screen gap-10">
                         <div class="albumPoster max-w-full flex gap-10">
                             <!-- This section is handeled by js -->
+                        </div>
                     </div>
-                </div>
                 </div>
                 <h2 class="py-4 text-lg font-bold">Favorite</h2>
                 <div class="favorite overflow-x-scroll">
@@ -75,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="right w-[35%] py-10 px-8">
+        <div class="right lg:w-[35%] w-100% py-2 px-2 lg:py-10 lg:px-8">
             <div class="right-nav flex px-10 pb-8 justify-end gap-10">
                 <div>
                     <i class="fa-solid fa-bell"></i>
@@ -87,26 +92,40 @@
             <div class="player border-2 py-8 h-[90%]">
                 <h2 class="text-gray-700 text-center pb-8 font-bold">Now Playing</h2>
                 <div class="px-6 h-3/4 flex justify-center">
-                    <img class="" src="src/album.webp" alt="">
+                    <!-- Now Playing Poster -->
+                    <img class="playPoster" src="src/album.webp" alt="">
                 </div>
-                <div class="seek my-6 mx-8 h-2 relative w-90 bg-white">
-                    <div class="absolute my-6 h-2 relative w-[10%] bg-gray-500 "></div>
+                <!-- Seek Bar -->
+                <div class="seek cursor-pointer my-6 mx-8 h-2 relative w-90 bg-white">
+                    <div class="absolute my-6 h-2 relative w-0 bg-gray-500 "></div>
                 </div>
-                <div class="controlls flex justify-center gap-8 items-center mt-4">
-                    <button class="control-button">
-                        <i class="fa-solid fa-step-backward"></i> 
-                    </button>
-                    <button class="control-button mx-20">
-                        <i class="fa-solid fa-pause"></i> 
-                        <i class="fa-solid fa-play"></i> 
-                    </button>
-                    <button class="control-button">
-                        <i class="fa-solid fa-step-forward"></i> 
-                    </button>
+                <!-- Audio player -->
+                <div class="audio-player">
+                    <audio id="myAudio" controls style="display: none;"></audio>
+                    <div class="custom-controls relative flex justify-center items-center gap-8 mt-4">
+                        <button class="control-button" onclick="previousTrack()">
+                            <i class="fa-solid fa-step-backward"></i>
+                        </button>
+                        <button class="control-button mx-20" onclick="togglePlayPause()">
+                            <i class="fa-solid fa-pause" id="pauseIcon" style="display: none;"></i>
+                            <i class="fa-solid fa-play" id="playIcon"></i>
+                        </button>
+                        <button class="control-button" onclick="nextTrack()">
+                            <i class="fa-solid fa-step-forward"></i>
+                        </button>
+                        <!-- Volume control bar -->
+                        <div
+                            class="volume-control cursor-pointer h-20 rotate-180 absolute left-0 bottom-0 w-4 bg-white mx-4 my-2">
+                            <div class="absolute rotate-180 h-full bg-gray-500" id="volumeLevel" style="width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
