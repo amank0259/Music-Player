@@ -164,49 +164,49 @@ const favoriteSongs = [
     },
 ]
 
-// // Update the poster of Descover
-// var allSongsPoster = "";
-// allSongs.forEach(function (obj) {
-//     allSongsPoster += `
-//     <div class="relative">
-//         <img class="h-40 contain" src=${obj.thumb} alt="">
-//         <i class="fa-solid play cursor-pointer absolute bottom-2 right-2 text-4xl text-white fa-circle-play"></i>
-//     </div>`;
-//     document.querySelector(".discoverPoster").innerHTML = allSongsPoster;
-// })
+// Update the poster of Descover
+var allSongsPoster = "";
+allSongs.forEach(function (obj) {
+    allSongsPoster += `
+    <div class="relative">
+        <img class="h-40 contain" src=${obj.thumb} alt="">
+        <i class="fa-solid play cursor-pointer absolute bottom-2 right-2 text-4xl text-white fa-circle-play"></i>
+    </div>`;
+    document.querySelector(".discoverPoster").innerHTML = allSongsPoster;
+})
 
-// // Update the poster of Album
-// var albumPoster = "";
-// album.forEach(obj => {
-//     albumPoster += `<div class="relative">
-//     <img class="h-40" src=${obj.thumb} alt="">
-//     <i class="fa-solid playa cursor-pointer absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
-// </div>`;
-//     document.querySelector(".albumPoster").innerHTML = albumPoster;
-// });
+// Update the poster of Album
+var albumPoster = "";
+album.forEach(obj => {
+    albumPoster += `<div class="relative">
+    <img class="h-40" src=${obj.thumb} alt="">
+    <i class="fa-solid playa cursor-pointer absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+</div>`;
+    document.querySelector(".albumPoster").innerHTML = albumPoster;
+});
 
 
-// // Update the poster of Favorite
-// var favoritePoster = "";
-// favoriteSongs.forEach(obj => {
-//     favoritePoster += `<div class="relative">
-//     <img class="h-40" src=${obj.thumb} alt="">
-//     <i class="fa-solid playb cursor-pointer absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
-// </div>`;
-//     document.querySelector(".favoritePoster").innerHTML = favoritePoster;
-// });
+// Update the poster of Favorite
+var favoritePoster = "";
+favoriteSongs.forEach(obj => {
+    favoritePoster += `<div class="relative">
+    <img class="h-40" src=${obj.thumb} alt="">
+    <i class="fa-solid playb cursor-pointer absolute bottom-0 right-0 text-4xl text-white fa-circle-play"></i>
+</div>`;
+    document.querySelector(".favoritePoster").innerHTML = favoritePoster;
+});
 
-// Function to update posters
-function updatePosters(songs, posterClass) {
-    let posterHTML = "";
-    songs.forEach((obj) => {
-        posterHTML += `<div class="relative">
-            <img class="h-40" src=${obj.thumb} alt="">
-            <i class="fa-solid play cursor-pointer absolute bottom-2 right-2 text-4xl text-white fa-circle-play"></i>
-        </div>`;
-    });
-    document.querySelector(`.${posterClass}`).innerHTML = posterHTML;
-}
+// // Function to update posters
+// function updatePosters(songs, posterClass) {
+//     let posterHTML = "";
+//     songs.forEach((obj) => {
+//         posterHTML += `<div class="relative">
+//             <img class="h-40" src=${obj.thumb} alt="">
+//             <i class="fa-solid play cursor-pointer absolute bottom-2 right-2 text-4xl text-white fa-circle-play"></i>
+//         </div>`;
+//     });
+//     document.querySelector(`.${posterClass}`).innerHTML = posterHTML;
+// }
 
 // Search bar Functionality
 function handleSearch() {
@@ -336,6 +336,25 @@ function playSong(song) {
     const seekBar = document.querySelector('.seek');
     const seekProgress = seekBar.querySelector('.absolute');
 
+    // Variables to track whether the mouse is down and initial position
+    isMouseDown = false;
+    let initialX;
+
+    // Add event listeners for mouse events
+    seekBar.addEventListener('mousedown', function (event) {
+        isMouseDown = true;
+        initialX = event.clientX;
+        updateSeekBar(event.clientX);
+    });
+    document.addEventListener('mousemove', function (event) {
+        if (isMouseDown) {
+            updateSeekBar(event.clientX);
+        }
+    });
+    document.addEventListener('mouseup', function () {
+        isMouseDown = false;
+    });
+
     // Reset the seek bar
     seekProgress.style.width = '0%';
 
@@ -345,15 +364,19 @@ function playSong(song) {
         seekProgress.style.width = `${progress}%`;
     });
 
-    // Make the seek bar clickable
-    seekBar.addEventListener('click', function (event) {
-        const clickX = event.clientX - seekBar.getBoundingClientRect().left;
+    // Function to update the seek bar based on mouse position
+    function updateSeekBar(mouseX) {
+        const clickX = mouseX - seekBar.getBoundingClientRect().left;
         const barWidth = seekBar.clientWidth;
         const percentage = (clickX / barWidth) * 100;
 
+        // Update the seek bar position
+        seekProgress.style.width = `${percentage}%`;
+
         // Update the audio playback position
+        const audioPlayer = document.getElementById('myAudio');
         audioPlayer.currentTime = (percentage / 100) * audioPlayer.duration;
-    });
+    }
 
     // Start playing the song
     audioPlayer.play();

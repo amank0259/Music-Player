@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/Music-Player/">
+    <!-- <base href="/Music-Player/"> -->
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
-<body>
+<body class="flex flex-col">
     <div id="main" class="flex transparent h-[90%] w-[90%]">
         <nav class="w-[5%] py-10 hidden lg:flex flex-col items-center gap-10">
             <a class="font-bold text-lg" href="">
@@ -126,6 +126,9 @@
             </div>
         </div>
     </div>
+    <footer>
+        <h4 class="pt-6 text-2xl text-white font-bold">Created with &#10084; by Aman</h4>
+    </footer>
     <script src="app.js"></script>
 </body>
 
